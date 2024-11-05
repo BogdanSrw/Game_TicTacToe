@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        cerr << "Usage: client_app <server_ip> <port>" << std::endl;
+        cerr << "Usage(Only for Windows): client_app.exe <server_ip> <port>" << std::endl;
         return 1;
     }
 
