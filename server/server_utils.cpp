@@ -123,7 +123,7 @@ void Server::start() {
 
     send_message(client_sockets[0], "Both players connected! You go first.");
     send_message(client_sockets[1], "Both players connected! Waiting for the other player's move.");
-    cout << "Starting gaming session." << endl <<endl;
+    cout << "Starting gaming session." << endl << endl;
     send_board();
 
     while (!game_over) {
@@ -157,7 +157,9 @@ void Server::start() {
             send_message(current_socket, "Invalid move, try again.");
         }
     }
+    
     cout << endl << "Game over. Shutting down the server." << endl;
+    
     for (int i = 0; i < 2; ++i) {
         closesocket(client_sockets[i]);
     }
