@@ -18,8 +18,19 @@ jobs:
         choco install visualstudio2022buildtools -y
         choco install visualstudio2022-workload-vctools -y
 
+    - name: Test message
+      shell: bash
+      run: |
+        echo "Hello from Bash on Windows, WTF???"
+        ls -la  # Работает!
+
+      # Сборка через bash (универсально)
     - name: Configure and Build
       shell: bash
       run: |
-        echo "Привет из Bash на Windows!"
-        ls -la  # Работает!
+          mkdir -p build
+          cd build
+          cmake .. -G "Visual Studio 17 2022" -A x64
+          cmake --build . --config Release
+         
+        
