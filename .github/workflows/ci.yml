@@ -1,19 +1,19 @@
 name: Tic-Tac-Toe CI
 
-on: [push, pull_request]  # Триггеры: push и PR
+on: [push, pull_request]  # Triggers
 
 jobs:
   build-and-test:
-    runs-on: windows-latest  # Используем Windows Server 2022 (аналог Windows 11 для CI)
+    runs-on: windows-latest  # Using Windows Server 2022 (analogue Windows 11 for CI)
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # Клонируем репозиторий
+      uses: actions/checkout@v4  # clone repository
 
     - name: Install CMake and MSVC
       shell: powershell
       run: |
-        # Устанавливаем CMake и инструменты MSVC (Visual Studio Build Tools)
+        # Installing CMake and MSVC Tools
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
         choco install visualstudio2022buildtools -y
         choco install visualstudio2022-workload-vctools -y
@@ -22,9 +22,9 @@ jobs:
       shell: bash
       run: |
         echo "Hello from Bash on Windows, WTF???"
-        ls -la  # Работает!
+        ls -la  # Works
 
-      # Сборка через bash (универсально)
+      # Build using bash
     - name: Configure and Build
       shell: bash
       run: |
